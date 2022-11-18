@@ -1,0 +1,7 @@
+<div *ngIf="(selectedProjectId$ | async) as selectedProjectId; else staticContent">
+  This will be the project specific content for id : {{ selectedProjectId }}
+</div>
+
+<ng-template #staticContent>
+  This will be the static/welcome content
+</ng-template>
