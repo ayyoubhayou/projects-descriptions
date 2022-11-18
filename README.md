@@ -6,14 +6,40 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## App mechanism
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To test the app, open two browser windows, one on `http://localhost:4200/` and the second `http://localhost:4200/project/id` (further details below).
 
-## Build
+The app has three main views :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Home page
 
-## Further help
+A static view that would contain the company description for example
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Project description
+
+When a project is selected, the Home page will automatically display a project description (tbd) and start a timer (currently set at 5 seconds for testing purposes) after which the app will display again the static content
+
+#### Project selection
+
+A static view that triggers a call to change the selected project in the database.
+This can be done by navigating to the link `http://localhost:4200/project/id` where `id` is the ID of the project to display
+
+## Connect to Firebase Realtime database
+
+This project uses a realtime database. In order to get it working, you should add a new folder `src/environments/` where you will add an `environment.ts` file containing the following information :
+```
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    apiKey: "<Your API Key>",
+    authDomain: "<Your Auth Domain>",
+    databaseURL: '<Your Realtime database URL>',
+    projectId: "<Your Project ID>",
+    storageBucket: "<Your Storage Bucket ID>",
+    messagingSenderId: "<Your Messaging sender ID>",
+    appId: "<Your App ID>",
+    measurementId: "<Your Measurement ID>"
+  }
+};
+```
